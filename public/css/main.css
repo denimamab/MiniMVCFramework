@@ -1,0 +1,9 @@
+.pannel div[class^="col"] .glyphicon{
+    font-size: 30px;
+    opacity: .4;
+}
+.pannel{
+    padding:15px;
+    outline:1px solid #eee;
+    margin-bottom: 25px;
+}
