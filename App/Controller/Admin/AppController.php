@@ -12,6 +12,7 @@ class AppController extends \App\Controller\AppController
 {
     protected $styles = [];
     protected $scripts = [];
+
     /**
      * AppController constructor.
      */
@@ -23,7 +24,57 @@ class AppController extends \App\Controller\AppController
 
     }
 
-    public function isAuthorized()
+    protected function init()
+    {
+        /*Initialize styles and scripts for edit and create pages*/
+        $this->style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
+        $this->style('froala/css/froala_editor.min.css');
+        $this->style('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css');
+        $this->style('froala/css/plugins/char_counter.css');
+        $this->style('froala/css/plugins/code_view.css');
+        $this->style('froala/css/plugins/colors.css');
+        $this->style('froala/css/plugins/emoticons.css');
+        //$this->style('froala/css/plugins/file.css');
+        $this->style('froala/css/plugins/fullscreen.css');
+        $this->style('froala/css/plugins/image.css');
+        $this->style('froala/css/plugins/image_manager.css');
+        $this->style('froala/css/plugins/line_breaker.css');
+        $this->style('froala/css/plugins/quick_insert.css');
+        $this->style('froala/css/plugins/table.css');
+        $this->style('froala/css/plugins/video.css');
+
+        $this->script('//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js');
+        $this->script('froala/js/froala_editor.min.js');
+        $this->script('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js');
+        $this->script('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js');
+        $this->script('froala/js/plugins/align.min.js');
+        $this->script('froala/js/plugins/char_counter.min.js');
+        $this->script('froala/js/plugins/code_beautifier.min.js');
+        $this->script('froala/js/plugins/code_view.min.js');
+        $this->script('froala/js/plugins/colors.min.js');
+        $this->script('froala/js/plugins/emoticons.min.js');
+        $this->script('froala/js/plugins/entities.min.js');
+        //$this->script('froala/js/plugins/file.min.js');
+        $this->script('froala/js/plugins/font_family.min.js');
+        $this->script('froala/js/plugins/font_size.min.js');
+        $this->script('froala/js/plugins/fullscreen.min.js');
+        $this->script('froala/js/plugins/image.min.js');
+        $this->script('froala/js/plugins/image_manager.min.js');
+        $this->script('froala/js/plugins/inline_style.min.js');
+        $this->script('froala/js/plugins/line_breaker.min.js');
+        $this->script('froala/js/plugins/link.min.js');
+        $this->script('froala/js/plugins/lists.min.js');
+        $this->script('froala/js/plugins/paragraph_format.min.js');
+        $this->script('froala/js/plugins/paragraph_style.min.js');
+        $this->script('froala/js/plugins/quick_insert.min.js');
+        $this->script('froala/js/plugins/quote.min.js');
+        $this->script('froala/js/plugins/table.min.js');
+        $this->script('froala/js/plugins/save.min.js');
+        $this->script('froala/js/plugins/url.min.js');
+        $this->script('froala/js/plugins/video.min.js');
+    }
+
+    protected function isAuthorized()
     {
         $auth = App::getInstance()->getAuth();
         if($auth->logged()
@@ -36,11 +87,12 @@ class AppController extends \App\Controller\AppController
         return false;
     }
 
-    public function style($path)
+    protected function style($path)
     {
         $this->styles[] = $path;
     }
-    public function script($path)
+
+    protected function script($path)
     {
         $this->scripts[] = $path;
     }

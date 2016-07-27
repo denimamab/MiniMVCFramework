@@ -1,3 +1,5 @@
+<a href="?p=admin.index" class="btn btn-danger">Back</a>
+<a href="?p=admin.user.create" class="btn btn-success ">New</a>
 <h1>Users</h1>
 <?php
 $msgs = \App\App::getInstance()->getControlSession()->get('msgs');
@@ -9,7 +11,6 @@ if(\App\App::getInstance()->getControlSession()->get('msgs') === null)
         <?= $msg['text']?>
     </div>
 <?php endforeach; ?>
-<a href="?p=admin.user.create" class="btn btn-success">New</a>
 <table class="table table-striped">
     <thead>
     <tr>

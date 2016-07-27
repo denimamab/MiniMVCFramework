@@ -1,6 +1,5 @@
-<a href="?p=admin.post.index" class="btn btn-danger ">Back</a>
-<a href="?p=post.single&id=<?= $item->id ?>" target="_blank" class="btn btn-success ">Show</a>
-
+<a href="?p=admin.post.index" class="btn btn-danger">Back</a>
+<a href="?p=post.single&id=<?= $item->id ?>" target="_blank" class="btn btn-success">Show</a>
 <h1>Edit post</h1>
 <form method="post">
     <?= $form->input('title','Title'); ?>

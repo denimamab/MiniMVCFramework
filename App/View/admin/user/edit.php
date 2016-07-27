@@ -1,4 +1,6 @@
-<h1>Edit User :</h1>
+<a href="?p=admin.user.index" class="btn btn-danger">Back</a>
+<a href="?p=user.single&id=<?= $item->id ?>" target="_blank" class="btn btn-success">Show</a>
+<h1>Edit User</h1>
 <?php
 $msgs = \App\App::getInstance()->getControlSession()->get('msgs');
 

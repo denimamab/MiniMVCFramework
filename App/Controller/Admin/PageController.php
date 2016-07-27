@@ -18,13 +18,17 @@ class PageController extends AppController
     }
 
     public function edit($id){
+        $this->init();
+        $styles = $this->styles;
+        $scripts = $this->scripts;
+
         if($_POST)
         {
             $this->Page->update($_GET['id'], $_POST);
         }
         $item = $this->Page->find($id);
         $form = new BootstrapForm($item);
-        $this->render('admin.page.edit', compact('item','form'));
+        $this->render('admin.page.edit', compact('item','form', 'styles', 'scripts'));
     }
 
     public function create(){
@@ -36,7 +40,10 @@ class PageController extends AppController
                                 ]);
             header('Location: index.php?p=admin.page.index');
         }
-        $this->render('admin.page.create',compact('form'));
+        $this->init();
+        $styles = $this->styles;
+        $scripts = $this->scripts;
+        $this->render('admin.page.create',compact('form', 'styles', 'scripts'));
 
     }
 

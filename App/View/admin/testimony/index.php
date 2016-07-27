@@ -1,5 +1,6 @@
-<h1>Testimonials</h1>
+<a href="?p=admin.index" class="btn btn-danger">Back</a>
 <a href="?p=admin.testimony.create" class="btn btn-success">New</a>
+<h1>Testimonials</h1>
 <table class="table table-striped">
     <thead>
     <tr>
