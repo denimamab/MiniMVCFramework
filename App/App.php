@@ -101,14 +101,4 @@ class App{
         return $this->auth_instance;
     }
 
-    public function style($link)
-    {
-        $this->styles[] = $link;
-    }
-
-    public function getStyles()
-    {
-        return $this->styles;
-    }
-
 }
