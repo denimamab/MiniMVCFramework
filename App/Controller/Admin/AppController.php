@@ -86,7 +86,16 @@ class AppController extends \App\Controller\AppController
 
         return false;
     }
+    
+    protected function isRootAuthorized()
+    {
+        $auth = App::getInstance()->getAuth();
+        if($auth->logged() && $auth->isOwner())
+            return true;
 
+        return false;
+    }
+    
     protected function style($path)
     {
         $this->styles[] = $path;

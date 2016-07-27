@@ -18,6 +18,11 @@ class UserController extends AppController
         $this->ControlSession = App::getInstance()->getControlSession();
     }
 
+    protected function isAuthorized()
+    {
+      return $this->isRootAuthorized();
+    }
+
     public function index(){
         $items = $this->User->all();
         $this->render('admin.user.index', compact('items'));
@@ -82,7 +87,7 @@ class UserController extends AppController
                                 'lastname'      =>  $_POST['lastname'],
                                 'email'         =>  $_POST['email'],
                                 'phone'         =>  $_POST['phone'],
-                                'password'      =>  $_POST['password']
+                                'password'      =>  sha1($_POST['password'])
                 ];
                 $msgs[] = [ 'type'  =>  'success',
                             'text'  =>  'User successfully created'];

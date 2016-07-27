@@ -8,6 +8,9 @@ class AdminController extends AppController
 
     public function index()
     {
-        $this->render('admin.index');
+        $root = $this->isRootAuthorized();
+        $this->render('admin.index', compact('root'));
     }
+    
+    
 }

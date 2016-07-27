@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\App;
 use Core\HTML\BootstrapForm;
 
 class TestimonyController extends AppController
@@ -48,8 +49,7 @@ class TestimonyController extends AppController
         $items = $this->Testimony->all();
         $this->render('admin.testimony.index', compact('items'));
     }
-
-
+    
     public function edit($id){
         $this->init();
         $scripts = $this->scripts;

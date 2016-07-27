@@ -10,6 +10,8 @@ else
 
 /*ROOTS*/
 if($page === 'home'){
+session_start();
+    session_destroy();
 
 }
 
