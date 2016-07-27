@@ -54,7 +54,7 @@ class UserController extends AppController
             $this->User->update($_GET['id'], $statement);
             if($msgs[1]['type'] != 'danger')
             {
-                header('Location: index.php?p=admin.user.index');
+                header('Location: '.URI.'admin/user');
                 die();
             }
        }
@@ -88,7 +88,7 @@ class UserController extends AppController
                             'text'  =>  'User successfully created'];
                 $this->ControlSession->set('msgs', $msgs);
                 $this->User->create($statement);
-                header('Location: index.php?p=admin.user.index');
+                header('Location: '.URI.'admin/user');
                 die();
             }else{
                 $msgs[] = [ 'type'  =>  'danger',
@@ -106,7 +106,7 @@ class UserController extends AppController
             $this->User->delete($_POST['id']);
             $this->ControlSession->set('msgs', [['type'  =>  'success',
                                                 'text'  =>  'User successfully deleted']]);
-            header('Location: index.php?p=admin.user.index');
+            header('Location: '.URI.'admin/user');
             die();
         }
     }

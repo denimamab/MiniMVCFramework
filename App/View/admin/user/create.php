@@ -1,4 +1,4 @@
-<a href="?p=admin.user.index" class="btn btn-danger">Back</a>
+<a href="<?= URI ?>admin/user" class="btn btn-danger">Back</a>
 <h1>Create new User</h1>
 <?php
 $msgs = \App\App::getInstance()->getControlSession()->get('msgs');

@@ -1,5 +1,5 @@
-<a href="?p=admin.index" class="btn btn-danger">Back</a>
-<a href="?p=admin.user.create" class="btn btn-success ">New</a>
+<a href="<?= URI ?>admin" class="btn btn-danger">Back</a>
+<a href="<?= URI ?>admin/user/create" class="btn btn-success ">New</a>
 <h1>Users</h1>
 <?php
 $msgs = \App\App::getInstance()->getControlSession()->get('msgs');
@@ -32,8 +32,8 @@ if(\App\App::getInstance()->getControlSession()->get('msgs') === null)
         <td><?= $item->date ?></td>
         <td><?= $item->rank ?></td>
         <td>
-            <a href="?p=admin.user.edit&id=<?= $item->id ?>" class="btn btn-primary">Edit</a>
-            <form action="?p=admin.user.delete" method="post" style="display: inline;">
+            <a href="<?= URI ?>admin/user/edit/<?= $item->id ?>" class="btn btn-primary">Edit</a>
+            <form action="<?= URI ?>admin/user/delete" method="post" style="display: inline;">
                 <input type="hidden" name="id" value="<?= $item->id ?>">
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
             </form>

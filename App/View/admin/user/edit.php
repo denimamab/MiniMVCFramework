@@ -1,5 +1,5 @@
-<a href="?p=admin.user.index" class="btn btn-danger">Back</a>
-<a href="?p=user.single&id=<?= $item->id ?>" target="_blank" class="btn btn-success">Show</a>
+<a href="<?= URI ?>admin/user" class="btn btn-danger">Back</a>
+<a href="<?= URI ?>user/<?= $item->id ?>" target="_blank" class="btn btn-success">Show</a>
 <h1>Edit User</h1>
 <?php
 $msgs = \App\App::getInstance()->getControlSession()->get('msgs');
@@ -19,7 +19,7 @@ foreach ($msgs as $msg): ?>
     <?= $form->input('firstname','First name'); ?>
     <?= $form->input('lastname','Last name'); ?>
     <?= $form->input('email','Email', ['type'   =>  'email']); ?>
-    <?= $form->input('phone','Phone', [ 'type'      =>  'tel',
+    <?= $form->input('phone', 'Phone', [ 'type'      =>  'tel',
                                         'pattern'   =>  '^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$']); ?>
     <h2>Edit password</h2>
     <?= $form->input('newPassword','New password', ['type'   =>  'password']); ?>

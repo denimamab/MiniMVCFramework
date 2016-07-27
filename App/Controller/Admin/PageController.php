@@ -38,7 +38,8 @@ class PageController extends AppController
             $this->Page->create([   'title'     =>  $_POST['title'],
                                     'content'   =>  $_POST['content']
                                 ]);
-            header('Location: index.php?p=admin.page.index');
+            header('Location: '. URI .'admin/page');
+            die();
         }
         $this->init();
         $styles = $this->styles;
@@ -51,7 +52,8 @@ class PageController extends AppController
         if($_POST)
         {
             $this->Page->delete($_POST['id']);
-            header('Location: index.php?p=admin.page.index');
+            header('Location: '. URI .'admin/page');
+            die();
         }
     }
 }

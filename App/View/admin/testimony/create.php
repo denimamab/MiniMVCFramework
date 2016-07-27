@@ -1,4 +1,4 @@
-<a href="?p=admin.testimony.index" class="btn btn-danger">Back</a>
+<a href="<?= URI ?>admin/testimony" class="btn btn-danger">Back</a>
 <h1>Create new testimony</h1>
 <form method="post">
     <?= $form->input('author','Author'); ?>

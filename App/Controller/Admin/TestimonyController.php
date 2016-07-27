@@ -16,32 +16,32 @@ class TestimonyController extends AppController
     {
         /*Initialize styles and scripts for edit and create pages*/
         $this->style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
-        $this->style('froala/css/froala_editor.min.css');
+        $this->style(URI . 'froala/css/froala_editor.min.css');
         $this->style('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css');
-        $this->style('froala/css/plugins/char_counter.css');
-        $this->style('froala/css/plugins/code_view.css');
-        $this->style('froala/css/plugins/colors.css');
-        $this->style('froala/css/plugins/emoticons.css');
+        $this->style(URI . 'froala/css/plugins/char_counter.css');
+        $this->style(URI . 'froala/css/plugins/code_view.css');
+        $this->style(URI . 'froala/css/plugins/colors.css');
+        $this->style(URI . 'froala/css/plugins/emoticons.css');
         //$this->style('froala/css/plugins/file.css');
-        $this->style('froala/css/plugins/quick_insert.css');
+        $this->style(URI . 'froala/css/plugins/quick_insert.css');
 
         $this->script('//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js');
-        $this->script('froala/js/froala_editor.min.js');
+        $this->script(URI . 'froala/js/froala_editor.min.js');
         $this->script('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js');
         $this->script('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js');
-        $this->script('froala/js/plugins/align.min.js');
-        $this->script('froala/js/plugins/char_counter.min.js');
-        $this->script('froala/js/plugins/code_beautifier.min.js');
-        $this->script('froala/js/plugins/code_view.min.js');
-        $this->script('froala/js/plugins/colors.min.js');
-        $this->script('froala/js/plugins/emoticons.min.js');
-        $this->script('froala/js/plugins/entities.min.js');
+        $this->script(URI . 'froala/js/plugins/align.min.js');
+        $this->script(URI . 'froala/js/plugins/char_counter.min.js');
+        $this->script(URI . 'froala/js/plugins/code_beautifier.min.js');
+        $this->script(URI . 'froala/js/plugins/code_view.min.js');
+        $this->script(URI . 'froala/js/plugins/colors.min.js');
+        $this->script(URI . 'froala/js/plugins/emoticons.min.js');
+        $this->script(URI . 'froala/js/plugins/entities.min.js');
         //$this->script('froala/js/plugins/file.min.js');
-        $this->script('froala/js/plugins/inline_style.min.js');
-        $this->script('froala/js/plugins/link.min.js');
-        $this->script('froala/js/plugins/lists.min.js');
-        $this->script('froala/js/plugins/quick_insert.min.js');
-        $this->script('froala/js/plugins/url.min.js');
+        $this->script(URI . 'froala/js/plugins/inline_style.min.js');
+        $this->script(URI . 'froala/js/plugins/link.min.js');
+        $this->script(URI . 'froala/js/plugins/lists.min.js');
+        $this->script(URI . 'froala/js/plugins/quick_insert.min.js');
+        $this->script(URI . 'froala/js/plugins/url.min.js');
     }
 
     public function index(){
@@ -72,7 +72,8 @@ class TestimonyController extends AppController
                                         'link'   =>  $_POST['link'],
                                         'content'   =>  $_POST['content']
                                 ]);
-            header('Location: index.php?p=admin.testimony.index');
+            header('Location: '. URI .'admin/testimony');
+            die();
         }
         $this->init();
         $scripts = $this->scripts;
@@ -86,7 +87,8 @@ class TestimonyController extends AppController
         if($_POST)
         {
             $this->Testimony->delete($_POST['id']);
-            header('Location: index.php?p=admin.testimony.index');
+            header('Location: '. URI .'admin/testimony');
+            die();
         }
     }
 }

@@ -1,5 +1,6 @@
 <?php
 define('ROOT', dirname(__DIR__));
+define('URI', '/PHP-Mini-MVC-Framework/public/');
 require '../App/App.php';
 $app = \App\App::getInstance();
 if(isset($_GET['p']))

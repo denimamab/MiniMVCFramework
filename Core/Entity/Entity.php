@@ -16,6 +16,6 @@ class Entity{
         $arr = end($arr);
         $url = str_replace('Entity', '', $arr);
         $url = strtolower($url);
-        return 'index.php?p=' . $url . '.single&id=' . $this->id;
+        return URI . $url . '/' . $this->id;
     }
 }

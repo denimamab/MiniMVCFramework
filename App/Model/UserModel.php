@@ -19,6 +19,7 @@ class UserModel extends Model{
                                             u.lastname    as   lastname,
                                             u.email       as   email,
                                             u.date        as   date,
+                                            u.phone       as   phone,
                                             r.name        as   rank,
                                             u.password    as   password
                                             FROM user u
@@ -35,6 +36,7 @@ class UserModel extends Model{
                                             u.lastname    as   lastname,
                                             u.email       as   email,
                                             u.date        as   date,
+                                            u.phone       as   phone,                                           
                                             r.name        as   rank,
                                             u.password    as   password
                                             FROM user u
@@ -51,6 +53,7 @@ class UserModel extends Model{
                                             u.lastname    as   lastname,
                                             u.email       as   email,
                                             u.date        as   date,
+                                            u.phone       as   phone,                                           
                                             r.name        as   rank
                                             FROM user u
                                             LEFT JOIN rank r 
@@ -71,4 +74,5 @@ class UserModel extends Model{
         $keys = implode(',', $keys);
         $this->db->prepare('INSERT INTO '. $this->table .' ('. $keys .',date) VALUES ('. $sql .', NOW())', $this->entity, $values);
     }
+    
 }

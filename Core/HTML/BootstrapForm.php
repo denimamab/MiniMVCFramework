@@ -14,7 +14,6 @@ class BootstrapForm extends Form{
     {
         $opts = [];
         $type = isset($options['type']) ? $options['type'] : 'text';
-
         foreach ($options as $k => $v) {
             $opts[] = $k . '=' .'"' . $v . '"';
         }

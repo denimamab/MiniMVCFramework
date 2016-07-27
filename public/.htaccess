@@ -1,0 +1,24 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+
+#Authentification
+RewriteRule ^login(/?)$ index.php?p=auth.login [L]
+
+
+#Archive pages and single page
+RewriteRule ^([a-z]+)(/?)$ index.php?p=$1.index [L]
+
+
+
+RewriteRule ^([a-z]+)/([0-9]+)(/?)$ index.php?p=$1.single&id=$2 [L]
+
+
+#Administration CREATE EDIT DELETE
+RewriteRule ^admin/([a-z]+)/create(/?)$ index.php?p=admin.$1.create [L]
+RewriteRule ^admin/([a-z]+)/edit/([0-9]+)(/?)$ index.php?p=admin.$1.edit&id=$2 [L]
+RewriteRule ^admin/([a-z]+)/delete(/?)$ index.php?p=admin.$1.delete [L]
+
+#Administration Archives
+RewriteRule ^admin/([a-z]+)(/?)$ index.php?p=admin.$1.index [L]
+RewriteRule ^admin/([a-z]+)(/?)$ index.php?p=admin.$1.index [L]

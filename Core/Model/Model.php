@@ -57,6 +57,8 @@ class Model{
 
     /**
      * CRUD
+     * @param $id
+     * @param $fields
      */
 
     public function update($id, $fields)
@@ -65,7 +67,7 @@ class Model{
         $attrs = [];
 
         foreach ($fields as $k => $v){
-            $SQLStat[] = ' ' . $k . ' = ?';
+            $SQLStat[] = ' ' . $k . '=?';
             $attrs[] = $v;
         }
         $SQL = implode(',', $SQLStat);

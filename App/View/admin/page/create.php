@@ -1,4 +1,4 @@
-<a href="?p=admin.page.index" class="btn btn-danger ">Back</a>
+<a href="<?= URI ?>admin/page" class="btn btn-danger ">Back</a>
 <h1>Create new page</h1>
 <form method="post">
     <?= $form->input('title','Title'); ?>

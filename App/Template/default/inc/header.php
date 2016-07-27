@@ -10,7 +10,7 @@
     <title><?= \App\App::getInstance()->title; ?></title>
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="<?= URI ?>css/main.css" rel="stylesheet">
     <?php
     $styles = isset($styles) ? $styles : [];
     foreach ($styles as $s): ?>

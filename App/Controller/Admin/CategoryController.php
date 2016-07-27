@@ -33,7 +33,8 @@ class CategoryController extends AppController
         {
             $this->Category->create([  'title'    =>  $_POST['title'],
                                 ]);
-            header('Location: index.php?p=admin.category.index');
+            header('Location: '. URI .'admin/category');
+            die();
         }
         $this->render('admin.category.create',compact('form'));
 
@@ -43,7 +44,7 @@ class CategoryController extends AppController
         if($_POST)
         {
             $this->Category->delete($_POST['id']);
-            header('Location: index.php?p=admin.category.index');
-        }
+            header('Location: '. URI .'admin/category');
+            die();        }
     }
 }

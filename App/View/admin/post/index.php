@@ -1,5 +1,5 @@
-<a href="?p=admin.index" class="btn btn-danger">Back</a>
-<a href="?p=admin.post.create" class="btn btn-success">New</a>
+<a href="<?= URI ?>admin" class="btn btn-danger">Back</a>
+<a href="<?= URI ?>admin/post/create" class="btn btn-success">New</a>
 <h1>Posts</h1>
 <table class="table table-striped">
     <thead>
@@ -17,9 +17,9 @@
         <td><?= $item->id ?></td>
         <td><?= $item->title ?></td>
         <td>
-            <a href="?p=post.single&id=<?= $item->id ?>" target="_blank" class="btn btn-warning">Show</a>
-            <a href="?p=admin.post.edit&id=<?= $item->id ?>" class="btn btn-primary">Edit</a>
-            <form action="?p=admin.post.delete" method="post" style="display: inline;">
+            <a href="<?= URI ?>post/<?= $item->id ?>" target="_blank" class="btn btn-warning">Show</a>
+            <a href="<?= URI ?>admin/post/edit/<?= $item->id ?>" class="btn btn-primary">Edit</a>
+            <form action="<?= URI ?>admin/post/delete" method="post" style="display: inline;">
                 <input type="hidden" name="id" value="<?= $item->id ?>">
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
             </form>

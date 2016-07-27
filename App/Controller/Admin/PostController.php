@@ -44,7 +44,8 @@ class PostController extends AppController
             $this->Post->create([   'title'     =>  $_POST['title'],
                                     'content'   =>  $_POST['content']
                                 ]);
-            header('Location: index.php?p=admin.post.index');
+            header('Location: '. URI .'admin/post/');
+            die();
         }
         $this->render('admin.post.create',compact('form','styles','scripts'));
 
@@ -54,8 +55,8 @@ class PostController extends AppController
         if($_POST)
         {
             $this->Post->delete($_POST['id']);
-            header('Location: index.php?p=admin.post.index');
-
+            header('Location: '. URI .'admin/post/');
+            die();
         }
     }
 }

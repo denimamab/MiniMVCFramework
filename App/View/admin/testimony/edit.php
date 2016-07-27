@@ -1,5 +1,5 @@
-<a href="?p=admin.testimony.index" class="btn btn-danger">Back</a>
-<a href="?p=testimony.single&id=<?= $item->id ?>" target="_blank" class="btn btn-success">Show</a>
+<a href="<?= URI ?>admin/testimony" class="btn btn-danger">Back</a>
+<a href="<?= URI ?>testimony/<?= $item->id ?>" target="_blank" class="btn btn-success">Show</a>
 <h1>Edit testimony</h1>
 <form method="post">
     <?= $form->input('author','Author'); ?>
