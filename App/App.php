@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use Core\Auth\DBAuth;
 use Core\Autoloader;
 use Core\Config;
 use Core\Database\MySQLDatabase;
@@ -12,7 +13,9 @@ class App{
     private $AuthSession_instance;
     private $ControlSession_instance;
     private  $db_instance;
+    private  $auth_instance;
     public $title;
+    private $styles =[];
 
 
     /**
@@ -80,7 +83,7 @@ class App{
     }
 
     public function getAuthSession(){
-        if($this->$AuthSession_instance === null)
+        if($this->AuthSession_instance === null)
             $this->AuthSession_instance = new AuthSession();
         return $this->AuthSession_instance;
     }
@@ -89,6 +92,23 @@ class App{
         if($this->ControlSession_instance === null)
             $this->ControlSession_instance = new AuthSession();
         return $this->ControlSession_instance;
+    }
+
+    public function getAuth()
+    {
+        if($this->auth_instance === null)
+            $this->auth_instance = new DBAuth($this->getAuthSession());
+        return $this->auth_instance;
+    }
+
+    public function style($link)
+    {
+        $this->styles[] = $link;
+    }
+
+    public function getStyles()
+    {
+        return $this->styles;
     }
 
 }

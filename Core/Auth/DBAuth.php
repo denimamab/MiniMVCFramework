@@ -56,7 +56,26 @@ class DBAuth{
 
     public function isAdmin()
     {
+        if(!$this->logged())
+            return false;
+
         $item = App::getInstance()->User->find($this->session->get('user')['id']);
 
+        return ($item->rank === 'Administrator') ? true : false;
+
     }
+
+    public function isOwner()
+    {
+        $item = App::getInstance()->User->find($this->session->get('user')['id']);
+        return ($item->rank === 'Owner') ? true : false;
+    }
+
+    public function isGuest()
+    {
+        $item = App::getInstance()->User->find($this->session->get('user')['id']);
+        return ($item->rank === 'Guest') ? true : false;
+    }
+
+
 }

@@ -13,7 +13,34 @@ class UserModel extends Model{
      */
     public function findByUsername($username)
     {
-        return $this->db->prepare('SELECT * FROM  '. $this->table .'  WHERE username = ?', $this->entity, [$username], true);
+        return $this->db->prepare('SELECT   u.id          as   id,
+                                            u.username    as   username,
+                                            u.firstname   as   firstname,
+                                            u.lastname    as   lastname,
+                                            u.email       as   email,
+                                            u.date        as   date,
+                                            r.name        as   rank,
+                                            u.password    as   password
+                                            FROM user u
+                                            LEFT JOIN rank r 
+                                                ON u.rank = r.id
+                                            WHERE username = ?', $this->entity, [$username], true);
+    }
+
+    public function find($id)
+    {
+        return $this->db->prepare('SELECT   u.id          as   id,
+                                            u.username    as   username,
+                                            u.firstname   as   firstname,
+                                            u.lastname    as   lastname,
+                                            u.email       as   email,
+                                            u.date        as   date,
+                                            r.name        as   rank,
+                                            u.password    as   password
+                                            FROM user u
+                                            LEFT JOIN rank r 
+                                                ON u.rank = r.id
+                                            WHERE u.id = ?', $this->entity, [$id], true);
     }
 
     public function all()

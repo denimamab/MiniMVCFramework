@@ -1,28 +1,39 @@
+<a href="?p=admin.post.index" class="btn btn-danger ">Back</a>
+<a href="?p=post.single&id=<?= $item->id ?>" target="_blank" class="btn btn-success ">Show</a>
+
 <h1>Edit post</h1>
 <form method="post">
     <?= $form->input('title','Title'); ?>
     <?= $form->input('content','Content',['type'=>'textarea']); ?>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save changes</button>
 </form>
 
-<script src="tinymce/tinymce.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<?php foreach ($scripts as $s): ?>
+    <script type="text/javascript" src="<?= $s ?>"></script>
+<?php endforeach; ?>
 
 <script>
-    tinymce.init({
-        selector: 'textarea',
-        height: 500,
-        theme: 'modern',
-        plugins: [
-            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            'searchreplace wordcount visualblocks visualchars code fullscreen',
-            'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools'
-        ],
-        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-        toolbar2: 'print preview fullscreen | image media | link | forecolor backcolor emoticons',
-        content_css: [
-            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
-        ]
+    $(function() {
+        $('textarea').froalaEditor({
+            imageUploadParam: 'image',
+            // Set the image upload URL.
+            imageUploadURL: 'froala/upload.php',
+            // Set request type.
+            imageUploadMethod: 'POST',
+            // Set max image size to 5MB.
+            imageMaxSize: 5 * 1024 * 1024,
+            // Allow to upload PNG and JPG.
+            imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+            // Set page size.
+            imageManagerPageSize: 20,
+            // Set a scroll offset (value in pixels).
+            imageManagerScrollOffset: 10,
+            // Set the load images request URL.
+            imageManagerLoadURL: "froala/load.php",
+            // Set the load images request type.
+            imageManagerLoadMethod: "GET",
+            // Set the delete image request URL.
+            imageManagerDeleteURL: "froala/delete.php",
+        })
     });
 </script>

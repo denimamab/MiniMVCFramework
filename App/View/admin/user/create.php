@@ -23,6 +23,6 @@ endforeach;
     <h2>Password</h2>
     <?= $form->input('password','Password *', ['type'   =>  'password', 'required' => 'required']); ?>
     <?= $form->input('confirmPassword','Confirm password *', ['type'   =>  'password', 'required' => 'required']); ?>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
 <?php \App\App::getInstance()->getControlSession()->rm('msgs'); ?>

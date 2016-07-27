@@ -1,5 +1,6 @@
+<a href="?p=admin.index" class="btn btn-danger">Back</a>
+<a href="?p=admin.post.create" target="_blank" class="btn btn-success ">New</a>
 <h1>Pages</h1>
-<a href="?p=admin.page.create" class="btn btn-success">New</a>
 <table class="table table-striped">
     <thead>
     <tr>

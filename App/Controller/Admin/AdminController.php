@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use Core\HTML\BootstrapForm;
 
 class AdminController extends AppController
 {
@@ -11,5 +10,4 @@ class AdminController extends AppController
     {
         $this->render('admin.index');
     }
-
 }

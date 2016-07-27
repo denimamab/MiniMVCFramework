@@ -11,6 +11,11 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <?php
+    $styles = isset($styles) ? $styles : [];
+    foreach ($styles as $s): ?>
+        <link rel="stylesheet" href="<?=$s?>">
+    <?php endforeach; ?>
 </head>
 
 <body>

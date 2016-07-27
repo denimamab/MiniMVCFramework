@@ -22,6 +22,6 @@ foreach ($msgs as $msg): ?>
     <h2>Edit password</h2>
     <?= $form->input('newPassword','New password', ['type'   =>  'password']); ?>
     <?= $form->input('confirmPassword','Confirm new password', ['type'   =>  'password']); ?>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save changes</button>
 </form>
 <?php \App\App::getInstance()->getControlSession()->rm('msgs'); ?>
