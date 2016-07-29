@@ -1,6 +1,7 @@
 <?php
 //ROOT FOLDER
 define('ROOT', str_replace('froala','',__DIR__));
+define('URI', '/PHP-Mini-MVC-Framework/public/');
 
 
 // Allowed extentions.
@@ -34,6 +35,6 @@ if ((($mime == "image/gif")
 
     // Generate response.
     $response = new StdClass;
-    $response->link = "uploads/" . $name;
+    $response->link = URI . "uploads/" . $name;
     echo stripslashes(json_encode($response));
 }

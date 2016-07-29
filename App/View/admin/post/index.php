@@ -6,6 +6,7 @@
     <tr>
         <td><strong>ID</strong></td>
         <td><strong>Title</strong></td>
+        <td><strong>Author</strong></td>
         <td><strong>Actions</strong></td>
     </tr>
     </thead>
@@ -16,6 +17,7 @@
     <tr>
         <td><?= $item->id ?></td>
         <td><?= $item->title ?></td>
+        <td><a href="<?= URI ?>user/<?= $item->author_id ?>" target="_blank" ><?= $item->author ?></a></td>
         <td>
             <a href="<?= URI ?>post/<?= $item->id ?>" target="_blank" class="btn btn-warning">Show</a>
             <a href="<?= URI ?>admin/post/edit/<?= $item->id ?>" class="btn btn-primary">Edit</a>

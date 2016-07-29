@@ -1,6 +1,7 @@
 <?php
 //ROOT FOLDER
 define('ROOT', str_replace('froala','',__DIR__));
+define('URI', '/PHP-Mini-MVC-Framework/public/');
 
 // Array of image objects to return.
 $response = array();
@@ -29,8 +30,8 @@ if ($fnames) {
             if (in_array(mime_content_type(ROOT . "/uploads/" . $name), $image_types)) {
                 // Build the image.
                 $img = new StdClass;
-                $img->url = "uploads/" . $name;
-                $img->thumb = "uploads/" . $name;
+                $img->url = URI . "uploads/" . $name;
+                $img->thumb = URI . "uploads/" . $name;
                 $img->name = $name;
 
                 // Add to the array of image.

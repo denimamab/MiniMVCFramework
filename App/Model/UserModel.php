@@ -20,6 +20,7 @@ class UserModel extends Model{
                                             u.email       as   email,
                                             u.date        as   date,
                                             u.phone       as   phone,
+                                            u.picture     as   picture,
                                             r.name        as   rank,
                                             u.password    as   password
                                             FROM user u
@@ -28,6 +29,10 @@ class UserModel extends Model{
                                             WHERE username = ?', $this->entity, [$username], true);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
         return $this->db->prepare('SELECT   u.id          as   id,
@@ -36,15 +41,18 @@ class UserModel extends Model{
                                             u.lastname    as   lastname,
                                             u.email       as   email,
                                             u.date        as   date,
+                                            u.picture     as   picture,
                                             u.phone       as   phone,                                           
-                                            r.name        as   rank,
-                                            u.password    as   password
+                                            r.name        as   rank
                                             FROM user u
                                             LEFT JOIN rank r 
                                                 ON u.rank = r.id
                                             WHERE u.id = ?', $this->entity, [$id], true);
     }
 
+    /**
+     * @return mixed
+     */
     public function all()
     {
         return $this->db->prepare('SELECT   u.id          as   id,
@@ -60,6 +68,9 @@ class UserModel extends Model{
                                                 ON u.rank = r.id', $this->entity);
     }
 
+    /**
+     * @param $args
+     */
     public function create($args)
     {
         $sql = [];
@@ -74,5 +85,4 @@ class UserModel extends Model{
         $keys = implode(',', $keys);
         $this->db->prepare('INSERT INTO '. $this->table .' ('. $keys .',date) VALUES ('. $sql .', NOW())', $this->entity, $values);
     }
-    
 }

@@ -60,7 +60,6 @@ class Model{
      * @param $id
      * @param $fields
      */
-
     public function update($id, $fields)
     {
         $SQLStat = [];
@@ -76,11 +75,17 @@ class Model{
         $this->db->prepare('UPDATE '. $this->table .' SET ' . $SQL . ' WHERE id=?', $this->entity, $attrs);
     }
 
+    /**
+     * @param $id
+     */
     public function delete($id)
     {
         $this->db->prepare('DELETE FROM '. $this->table .'  WHERE id=?', $this->entity, [$id]);
     }
 
+    /**
+     * @param $args
+     */
     public function create($args)
     {
         $sql = [];

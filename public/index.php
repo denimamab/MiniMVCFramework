@@ -43,13 +43,19 @@ elseif($page === 'page.index'){
 }elseif($page === 'page.single'){
     $controller = new \App\Controller\PageController();
     $controller->single($_GET['id']);
-}/*END POST ROOTS*/
+}/*END Page ROOTS*/
+
+/*BEGIN User ROOTS*/
+elseif($page === 'user.single'){
+    $controller = new \App\Controller\UserController();
+    $controller->single($_GET['id']);
+}/*END User ROOTS*/
 
 /*BEGIN Auth ROOTS*/
 elseif($page === 'auth.login'){
     $controller = new \App\Controller\AuthController();
     $controller->login();
-}/*END POST ROOTS*/
+}/*END Auth ROOTS*/
 
 /*BEGIN Administration ROOTS*/
 elseif($page === 'admin.index'){

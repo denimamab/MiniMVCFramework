@@ -11,10 +11,10 @@
 
 <script>
     $(function() {
-        $('textarea').froalaEditor({
+        $('#labelContent').froalaEditor({
             imageUploadParam: 'image',
             // Set the image upload URL.
-            imageUploadURL: 'froala/upload.php',
+            imageUploadURL: '<?= URI ?>froala/upload.php',
             // Set request type.
             imageUploadMethod: 'POST',
             // Set max image size to 5MB.
@@ -26,12 +26,12 @@
             // Set a scroll offset (value in pixels).
             imageManagerScrollOffset: 10,
             // Set the load images request URL.
-            imageManagerLoadURL: "froala/load.php",
+            imageManagerLoadURL: "<?= URI ?>froala/load.php",
             // Set the load images request type.
             imageManagerLoadMethod: "GET",
             // Set the delete image request URL.
-            imageManagerDeleteURL: "froala/delete.php",
-        })
+            imageManagerDeleteURL: "<?= URI ?>froala/delete.php",
+        });
     });
 </script>
 

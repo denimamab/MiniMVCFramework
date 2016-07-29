@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\App;
 use Core\HTML\BootstrapForm;
 
 class PostController extends AppController
@@ -37,12 +38,14 @@ class PostController extends AppController
         $this->init();
         $styles = $this->styles;
         $scripts = $this->scripts;
-
+        
+        $session = App::getInstance()->getAuthSession();
         $form = new BootstrapForm($_POST);
         if($_POST)
         {
             $this->Post->create([   'title'     =>  $_POST['title'],
-                                    'content'   =>  $_POST['content']
+                                    'content'   =>  $_POST['content'],
+                                    'author_id' =>  $session->get('user')['id']
                                 ]);
             header('Location: '. URI .'admin/post/');
             die();
